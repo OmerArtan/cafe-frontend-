@@ -1,18 +1,23 @@
 import React from 'react';
-import Navbar from './components/Navbar'; // Navbar'ı içeri aktarıyoruz
-
+// Componentlerini kendi klasör yapına göre import et
+import Navbar from './components/Navbar'; 
+import Categories from './components/Categories'; 
+import ProductGrid from './components/ProductGrid'; // Ürün listesini buraya ekledik
 function App() {
   return (
-    <div className="min-h-screen bg-slate-100">
-      {/* Menüyü sayfanın en üstüne yerleştiriyoruz */}
+    // Tasarımdaki krem/bej arka plan rengiyle uyumlu olması için bg-[#fdfbf7] kullanabilirsin
+    <div className="min-h-screen bg-[#fdfbf7]">
+      
+      {/* 1. Üst Menü (En üstte sabit kalacak veya sayfa ile kayacak kısım) */}
       <Navbar />
-
-      {/* Sayfanın Ana İçeriği (Yazılar kaldırıldı, sadece kapsayıcı alan kaldı) */}
-      <main className="container mx-auto p-4 mt-8">
-        {/* İleride menü tıklamalarına göre gelecek içerikler buraya yerleştirilebilir */}
+      {/* 2. Kategoriler (Hemen menünün altında tam genişlikte yer alır) */}
+      <Categories />
+      {/* 3. Sayfanın Ana İçeriği: Ürünler */}
+      {/* İstersen araya biraz boşluk koymak için <main> etiketine ekstra class verebilirsin */}
+      <main>
+        <ProductGrid />
       </main>
     </div>
   );
 }
-
 export default App;
